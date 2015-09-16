@@ -1,12 +1,9 @@
 {
   "name": "angular-webpack-seed",
-  "version": "0.2.0",
-  "description": "Yet another example project with AngularJS and webpack",
-  "repository": "https://github.com/britter/angular-webpack-seed",
+  "version": "0.0.1",
   "scripts": {
-    "postinstall": "./node_modules/protractor/bin/webdriver-manager update",
-    "pretest": "./node_modules/protractor/bin/webdriver-manager start &",
-    "test": "./node_modules/gulp/bin/gulp.js"
+    "build": "webpack",
+    "dev-server": "webpack-dev-server --inline --hot --port 9090 --content-base app --progress"
   },
   "dependencies": {
     "angular": "^1.4.4",
@@ -15,6 +12,7 @@
     "jquery": "^2.1.1"
   },
   "devDependencies": {
+    "babel-loader": "^5.1.2",
     "chai": "^1.9.1",
     "eslint": "^1.1.0",
     "eslint-loader": "^1.0.0",
@@ -31,7 +29,6 @@
     "protractor": "^0.22.0",
     "sinon": "^1.9.1",
     "sinon-chai": "^2.5.0",
-    "webpack": "^1.11.0",
-    "webpack-dev-server": "^1.10.1"
+    "webpack": "^1.11.0"
   }
 }
