@@ -1,19 +1,9 @@
 var path = require('path');
 var webpack = require("webpack");
-//var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
-
-/*if (process.env.npm_package_config_env === 'PROD' || process.env.npm_package_config_env === 'TEST') {
- activePlugins.push(new ngAnnotatePlugin({}));
- activePlugins.push(new webpack.optimize.UglifyJsPlugin({
- compress: {
- warnings: false,
- }
- }));
- }*/
 
 module.exports = {
     entry: {
-        app: "./app/js/app.es6"
+        app: "./app/app.es6"
     },
     output: {
         path: path.join(__dirname, 'app'),
@@ -21,7 +11,7 @@ module.exports = {
         filename: 'bundle/app.js' // name wird mit key aus entry-objekt oben ersetzt
 
     },
-    devtool: 'source-map',
+    devtool: 'inline-source-map',
     module: {
         loaders: [
             {

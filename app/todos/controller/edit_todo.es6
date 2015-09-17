@@ -39,7 +39,7 @@ module.exports = function($scope, TodoService) {
       $scope.$parent.todo.due = backupForCancel.due;
       $scope.$parent.todo.text = backupForCancel.text;
     } else {
-      // discard new todo, set active todo to some arbitrary todo
+      // discard new todos, set active todos to some arbitrary todos
       $scope.$parent.todo = TodoService.getTodos()[0];
       creatingNew = false;
     }
@@ -48,7 +48,7 @@ module.exports = function($scope, TodoService) {
 
   $scope.remove = function() {
     TodoService.remove($scope.$parent.todo);
-    // set active todo to some arbitrary todo
+    // set active todos to some arbitrary todos
     $scope.$parent.todo = TodoService.getTodos()[0];
   };
 
