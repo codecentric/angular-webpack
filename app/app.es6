@@ -11,12 +11,12 @@ import './styles/unsemantic-grid-responsive.css';
 
 import packageJson from 'json!../package.json';
 
-import service from './service';
+//import service from './service';
 import controller from './controller';
 import todos from './todos';
 import imprint from './imprint';
 
-var app = angular.module('todoApp', ['ngRoute', service, controller, todos, imprint]);
+var app = angular.module('todoApp', ['ngRoute', controller, todos, imprint]);
 
 app.constant('VERSION', packageJson.version);
 
