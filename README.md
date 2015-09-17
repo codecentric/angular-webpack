@@ -18,4 +18,4 @@ Tasks
 ------------
 *implementing a validation directive:*
 * https://docs.angularjs.org/guide/forms
-* implement some unit tests with karma, jasmine 
+*implement some unit tests with karma, jasmine*
