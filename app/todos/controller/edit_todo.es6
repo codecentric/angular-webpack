@@ -1,62 +1,77 @@
 'use strict';
 
-module.exports = function($scope, TodoService) {
+export default class EditTodoController {
 
-  var backupForCancel;
-  var creatingNew = false;
+  constructor(TodoService, $location) {
+    this.creatingNew = false;
+    this.editMode = false;
+    this.TodoService = TodoService;
+    this.location = $location;
 
-  $scope.editMode = false;
+    this.todos = TodoService.getTodos();
+    let id = this.location.search().id;
+    if (angular.isUndefined(id)) {
+      this.location.search('id', this.todos[0].id);
+    }
+    id = parseInt(id);
+    this.todo = this.todos.find((todo)=> {
+      return todo.id === id
+    });
+  }
 
-  $scope.create = function() {
-    $scope.$parent.todo = TodoService.create();
-    backupForCancel = null;
-    creatingNew = true;
-    $scope.editMode = true;
+  create() {
+    this.todo = this.TodoService.create();
+    this.backupForCancel = null;
+    this.creatingNew = true;
+    this.editMode = true;
   };
 
-  $scope.edit = function() {
-    if ($scope.editMode) {
+  edit() {
+    if (this.editMode) {
       return;
     }
-    backupForCancel = copy($scope.$parent.todo);
-    creatingNew = false;
-    $scope.editMode = true;
+    this.backupForCancel = this.copy(this.todo);
+    this.creatingNew = false;
+    this.editMode = true;
   };
 
-  $scope.save = function() {
-    if (creatingNew) {
-      TodoService.insert($scope.$parent.todo);
+  save() {
+    if (this.creatingNew) {
+      this.TodoService.insert(this.todo);
+      this.location.search('id', this.todo.id);
     }
-    $scope.editMode = false;
-    creatingNew = false;
-    backupForCancel = null;
+    this.editMode = false;
+    this.creatingNew = false;
+    this.backupForCancel = null;
   };
 
-  $scope.cancel = function() {
-    if (!creatingNew) {
+  cancel() {
+    if (!this.creatingNew) {
       // rollback edits
-      $scope.$parent.todo.title = backupForCancel.title;
-      $scope.$parent.todo.due = backupForCancel.due;
-      $scope.$parent.todo.text = backupForCancel.text;
+      this.todo.title = this.backupForCancel.title;
+      this.todo.due = this.backupForCancel.due;
+      this.todo.text = this.backupForCancel.text;
     } else {
       // discard new todos, set active todos to some arbitrary todos
-      $scope.$parent.todo = TodoService.getTodos()[0];
-      creatingNew = false;
+      this.todo = this.TodoService.getTodos()[0];
+      this.creatingNew = false;
     }
-    $scope.editMode = false;
+    this.editMode = false;
+    this.location.search('id', this.todo.id);
   };
 
-  $scope.remove = function() {
-    TodoService.remove($scope.$parent.todo);
+  remove() {
+    this.TodoService.remove(this.todo);
     // set active todos to some arbitrary todos
-    $scope.$parent.todo = TodoService.getTodos()[0];
+    this.todo = this.TodoService.getTodos()[0];
+    this.location.search('id', this.todo.id);
   };
 
-  function copy(todo) {
+  copy() {
     return {
-      title: todo.title,
-      due: todo.due,
-      text: todo.text,
+      title: this.todo.title,
+      due: this.todo.due,
+      text: this.todo.text,
     };
   }
 };

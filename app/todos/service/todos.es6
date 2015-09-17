@@ -3,20 +3,24 @@
 module.exports = function() {
 
   var todos = [{
+    id: 1,
     title: 'Buy milk',
     due: createDate(0, 0, 0, 18, 0),
     text: 'We are out of milk and coffee without milk is just unbearable.',
   }, {
+    id: 2,
     title: 'Write blog post',
     due: createDate(0, 0, 1, 14, 0),
     text: 'Write a blog post about how to integrate AngularJS and webpack ' +
       'for http://angularjs.de/',
   }, {
+    id: 3,
     title: 'Finish talk proposal',
     due: createDate(0, 0, 7, 23, 30),
     text: 'Finalize the talk proposal for FoobarConf. Call for papers ' +
       'deadline is on Tuesday.',
   }, {
+    id: 4,
     title: 'World Domination',
     due: createDate(5, 0, 0, 12, 0),
     text: 'Because, who wouldn\'t want that?',
@@ -35,6 +39,7 @@ module.exports = function() {
   };
 
   this.insert = function(todo) {
+    todo.id = todos.length+1;
     todos.push(todo);
   };
 
