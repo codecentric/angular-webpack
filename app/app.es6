@@ -16,7 +16,7 @@ import controller from './controller';
 import todos from './todos';
 import imprint from './imprint';
 
-var app = angular.module('todoApp', ['ngRoute', service, controller, todos]);
+var app = angular.module('todoApp', ['ngRoute', service, controller, todos, imprint]);
 
 app.constant('VERSION', packageJson.version);
 
