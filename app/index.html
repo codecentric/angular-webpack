@@ -4,13 +4,17 @@
 <head>
   <title>AngularJS and webpack</title>
 </head>
-
+<style>
+  [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+  }
+</style>
 <body>
 <div class="content grid-container" ng-app="todoApp">
 
   <div ng-view></div>
 
-  <div class="footer" ng-controller="FooterController as ctrl">AngularJS &amp; webpack Example, Version: {{ctrl.version}}
+  <div class="footer" ng-controller="FooterController as ctrl" ng-cloak>AngularJS &amp; webpack Example, Version: {{ctrl.version}}
     <a href="#/imprint">[Imprint]</a>
   </div>
 
