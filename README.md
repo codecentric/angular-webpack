@@ -8,12 +8,11 @@ An accompanying blog post can be found at tba.
 Build
 -----
 
-*TODO*
+npm run build
 
-Known Issues
-------------
-
-The protractor tests are currently failing on travis-ci. I have not been able to figure out why, yet.
+Development
+-----
+npm run dev-server
 
 Tasks
 ------------
