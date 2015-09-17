@@ -14,3 +14,8 @@ Known Issues
 ------------
 
 The protractor tests are currently failing on travis-ci. I have not been able to figure out why, yet.
+
+Tasks
+------------
+*implementing a validation directive:*
+* https://docs.angularjs.org/guide/forms
