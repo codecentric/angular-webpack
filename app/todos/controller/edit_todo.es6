@@ -74,4 +74,4 @@ export default class EditTodoController {
       text: this.todo.text,
     };
   }
-};
+}
