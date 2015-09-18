@@ -28,11 +28,11 @@ module.exports = {
             },
             {
                 test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf\?*$|\.eot|\.obj$/i,
-                loader: 'url-loader?limit=10000'
+                loader: 'url-loader?limit=90000'
             },
             {
                 test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+                loader: 'url-loader?limit=90000&mimetype=application/font-woff'
 
             },
             {
