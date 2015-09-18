@@ -20,8 +20,8 @@ module.exports = function(config) {
     files: [
       'test/tests.js',
       './node_modules/phantomjs-polyfill/bind-polyfill.js',
-      {pattern: './src/main/webapp/resources/default-theme/bundle/common.js', nocache:true},
-      {pattern: './src/main/webapp/resources/default-theme/bundle/prozessFormulareApp.js', nocache:true}
+      {pattern: './app/bundle/common.js', nocache:true},
+      {pattern: './app/bundle/app.js', nocache:true}
     ],
 
     preprocessors: {
@@ -49,7 +49,7 @@ module.exports = function(config) {
     reporters : ['progress','junit'],
 
     junitReporter : {
-      outputFile: 'target/karma-test-results/test-results.xml'
+      outputFile: 'karma-test-results/test-results.xml'
     },
 
     // web server port
@@ -66,16 +66,16 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
 
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     //    browsers: ['PhantomJS', 'Firefox', 'Chrome'],
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: true
   });
 };
