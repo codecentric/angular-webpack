@@ -46,12 +46,6 @@ module.exports = {
         noInfo: false
     },
     plugins: [
-        new webpack.ProvidePlugin({
-            IBAN: "iban"
-        }),
-        new webpack.ProvidePlugin({
-            moment: "moment"
-        }),
         new webpack.optimize.CommonsChunkPlugin({filename: "bundle/common.js"})
     ]
     ,

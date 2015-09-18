@@ -2,8 +2,6 @@
 // Karma configuration
 
 var webpack = require("webpack");
-require('phantomjs-polyfill');
-
 var webpackConfig = require('./webpack.config.js');
 
 module.exports = function(config) {
@@ -19,7 +17,6 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'test/tests.js',
-      './node_modules/phantomjs-polyfill/bind-polyfill.js',
       {pattern: './app/bundle/common.js', nocache:true},
       {pattern: './app/bundle/app.js', nocache:true}
     ],
@@ -72,7 +69,7 @@ module.exports = function(config) {
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     //    browsers: ['PhantomJS', 'Firefox', 'Chrome'],
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
