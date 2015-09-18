@@ -1,5 +1,6 @@
 'use strict';
 
+import 'babel-core/polyfill';
 import 'es5-shim';
 import 'jquery';
 import 'angular';
